@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+ import Name from "./Name";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      name:"Ben",
+      age: 36
+    }
+    //this.changeName = this.changeName.bind(this);
+  }
+
+  // changeName(){
+  //   this.setState({
+  //     name: "John"
+  //   })
+  // }
+
+
+  changeName= ()=>{
+    this.setState({
+      name: "John"
+    })
+  }
+  // increment = ()=>{
+  //   this.setState(prevState=>({
+  //     age: prevState.age + 1,
+  //   }))
+  // }
+  // decrement = ()=>{
+  //   this.setState(prevState=>({
+  //     age: prevState.age - 1,
+  //   }))
+  // }
+  render(){
+    return (
+      <div className="App">
+    <Name name={this.state.name} age={this.state.age} />
+    {/* <button onClick={this.changeName}>Change Name</button>
+    <button onClick={this.increment}>Increment Age</button>
+    <button onClick={this.decrement}>Decrement Age</button> */}
     </div>
-  );
+    )}
 }
+
 
 export default App;
